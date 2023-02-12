@@ -1,0 +1,47 @@
+mongodb://localhost:27017/
+
+below command worked from shell (to access mongodb cloud cluster) 
+mongo "mongodb+srv://cluster0.hqvxsfa.mongodb.net/myFirstDatabase" --username <username>
+
+for cloud mongodb server, install below:
+-----------------------------------------------
+pip install pymongo dnspython
+
+from python (from Atlas): below worked:
+client = pymongo.MongoClient("mongodb+srv://babu:IcwB1955t1XodUoF@cluster0.7uwgio0.mongodb.net/?retryWrites=true&w=majority")
+db = client.test
+print(db.list_collection_names())
+
+to write something, pls create a database using Atlas. Then use it in code...see the code (desktop folder: fastapi_pymongo)
+
+To create a cluster on cloud, 
+
+open mongodb Atlas,
+
+-login using Google
+-create a cluster (using free)
+
+Watch youtube video ('mongodb' by Python Engineer) to work with the cluster
+
+===================
+to connect to local server, (both works)
+client = pymongo.MongoClient('mongodb://localhost:27017/')
+client = pymongo.MongoClient('localhost:27017')
+
+import datetime
+from pymongo import MongoClient
+import pymongo
+print(pymongo.__version__)
+
+
+#client = pymongo.MongoClient('mongodb://localhost:27017/')
+client = pymongo.MongoClient('localhost:27017')
+
+try:
+    print(client.server_info())
+except Exception:
+    print("Unable to connect to the server.")
+
+#db = client.test
+print(client.list_database_names())
+================================================================
